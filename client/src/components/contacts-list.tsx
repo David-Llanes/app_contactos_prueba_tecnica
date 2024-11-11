@@ -8,13 +8,19 @@ import { getFullName, getInitials } from '@/lib/utils'
 import { Contact } from '@/types'
 import { ScrollArea } from '@components/ui/scroll-area'
 import { Mail, MapPin, Phone, Search } from 'lucide-react'
+import EditContact from './edit-contact'
 
 interface Props {
   contacts: Contact[]
   onDeleteContact: (id: number) => void
+  setContacts: React.Dispatch<React.SetStateAction<Contact[]>>
 }
 
-export default function ContactsList({ contacts, onDeleteContact }: Props) {
+export default function ContactsList({
+  contacts,
+  onDeleteContact,
+  setContacts,
+}: Props) {
   if (!contacts.length) {
     return (
       <div className="flex flex-col gap-3 items-center ">
@@ -47,9 +53,7 @@ export default function ContactsList({ contacts, onDeleteContact }: Props) {
             </AccordionTrigger>
             <AccordionContent>
               <section className="flex gap-2 justify-end">
-                <button className="hover:underline cursor-pointer font-semibold">
-                  Editar
-                </button>
+                <EditContact contact={c} setContacts={setContacts} />
                 <button
                   className="hover:underline cursor-pointer font-semibold text-destructive"
                   onClick={() => onDeleteContact(c.id)}

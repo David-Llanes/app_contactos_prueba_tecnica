@@ -77,6 +77,7 @@ function Contacts() {
       </div>
       <ContactsList
         contacts={filteredContacs}
+        setContacts={setContacts}
         onDeleteContact={handleDeleteContact}
       />
     </main>
