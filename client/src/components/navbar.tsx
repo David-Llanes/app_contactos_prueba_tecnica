@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 export default function Navbar() {
   return (
     <header className="bg-popover py-4 content h-20">
@@ -10,13 +9,6 @@ export default function Navbar() {
             Contactos
           </Link>
         </div>
-        <a
-          className="hover:underline"
-          href="https://github.com/David-Llanes/app_contactos_prueba_tecnica"
-          target="_blank"
-        >
-          GitHub
-        </a>
       </nav>
     </header>
   )

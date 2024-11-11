@@ -1,4 +1,3 @@
-import { Address } from '@/types'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -19,15 +18,5 @@ export function getInitials(text: string): string {
 }
 
 export function getFullName(name: string, lastname: string): string {
-  return [name, lastname].join(' ') || 'Sin nombre'
-}
-
-export const getFormattedAddress = (address: Address) => {
-  return [
-    address.street,
-    address.city,
-    address.zip,
-    address.state,
-    address.country,
-  ].join(', ')
+  return [name, lastname].join(' ').trim() || 'Sin nombre'
 }

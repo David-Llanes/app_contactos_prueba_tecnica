@@ -11,7 +11,6 @@ import { ThemeProvider } from '@/components/theme-provider'
 import RootLayout from '@/layouts/root'
 import Contacts from '@/pages/contacts'
 import NotFound from '@pages/not-found'
-
 import contactsLoader from '@/routes/contacts-loader'
 import ContactsLayout from './layouts/contacts'
 

@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { getFormattedAddress, getFullName, getInitials } from '@/lib/utils'
+import { getFullName, getInitials } from '@/lib/utils'
 import { Contact } from '@/types'
 import { ScrollArea } from '@components/ui/scroll-area'
 import { Mail, MapPin, Phone, Search } from 'lucide-react'
@@ -23,7 +23,7 @@ export default function ContactsList({ contacts, onDeleteContact }: Props) {
           No se encontraron coincidencias
         </p>
         <p className="text-sm italic text-pretty text-center">
-          Revisa la ortografía o intenta buscar algo distinto.
+          Revisa la ortografía o intenta buscar algo distinto
         </p>
       </div>
     )
@@ -84,8 +84,8 @@ export default function ContactsList({ contacts, onDeleteContact }: Props) {
                     <span>Dirección</span>
                   </p>
                   <div className="col-start-2 text-muted-foreground font-semibold">
-                    {c.addresses.map((a) => (
-                      <p key={a.id}>- {getFormattedAddress(a)}</p>
+                    {c.addresses.map((address, index) => (
+                      <p key={index}>- {address}</p>
                     ))}
                   </div>
                 </div>

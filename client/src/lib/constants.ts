@@ -2,11 +2,13 @@ export const CONTACTS_MOCK = [
   {
     id: 1,
     name: 'Juan',
-    lastname: 'Pérez López',
+    lastname: 'Hernández',
     email: 'juan.perez@mail.com',
     numbers: ['5512345678', '5598765432'],
     addresses: [
       {
+        id: 1,
+        contactId: 1,
         street: 'Calle Ficticia 123',
         noExt: '202',
         city: 'Ciudad de México',
@@ -15,6 +17,8 @@ export const CONTACTS_MOCK = [
         country: 'México',
       },
       {
+        id: 2,
+        contactId: 1,
         street: 'Avenida Siempre Viva 456',
         noExt: '301',
         city: 'Guadalajara',
@@ -32,6 +36,8 @@ export const CONTACTS_MOCK = [
     numbers: ['3323456789'],
     addresses: [
       {
+        id: 3,
+        contactId: 2,
         street: 'Avenida Chapultepec 789',
         noExt: '303',
         city: 'Monterrey',
@@ -49,6 +55,8 @@ export const CONTACTS_MOCK = [
     numbers: ['3334567890', '3387654321'],
     addresses: [
       {
+        id: 4,
+        contactId: 3,
         street: 'Calle Larga 101',
         noExt: '305',
         city: 'Puebla',
@@ -66,6 +74,8 @@ export const CONTACTS_MOCK = [
     numbers: ['2224567890'],
     addresses: [
       {
+        id: 5,
+        contactId: 4,
         street: 'Calle Juárez 890',
         noExt: '308',
         city: 'Tijuana',
@@ -83,6 +93,8 @@ export const CONTACTS_MOCK = [
     numbers: ['5556789012', '5576543210'],
     addresses: [
       {
+        id: 6,
+        contactId: 5,
         street: 'Calle del Sol 123',
         noExt: '311',
         city: 'Mérida',
@@ -100,6 +112,8 @@ export const CONTACTS_MOCK = [
     numbers: ['6646789012'],
     addresses: [
       {
+        id: 7,
+        contactId: 6,
         street: 'Avenida Reforma 456',
         noExt: '313',
         city: 'Cancún',
@@ -117,6 +131,8 @@ export const CONTACTS_MOCK = [
     numbers: ['9997890123'],
     addresses: [
       {
+        id: 8,
+        contactId: 7,
         street: 'Calle Hidalgo 123',
         noExt: '315',
         city: 'León',
@@ -134,6 +150,8 @@ export const CONTACTS_MOCK = [
     numbers: ['6647890123'],
     addresses: [
       {
+        id: 9,
+        contactId: 8,
         street: 'Avenida Constitución 789',
         noExt: '318',
         city: 'Querétaro',
@@ -151,6 +169,8 @@ export const CONTACTS_MOCK = [
     numbers: ['7777890123'],
     addresses: [
       {
+        id: 10,
+        contactId: 9,
         street: 'Calle Reforma 789',
         noExt: '320',
         city: 'Culiacán',
@@ -168,6 +188,8 @@ export const CONTACTS_MOCK = [
     numbers: ['9987654321'],
     addresses: [
       {
+        id: 11,
+        contactId: 10,
         street: 'Calle 10',
         noExt: '322',
         city: 'Mazatlán',
