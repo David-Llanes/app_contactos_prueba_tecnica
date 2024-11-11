@@ -16,6 +16,7 @@ import { ScrollArea, ScrollBar } from './ui/scroll-area'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { useContactsStore } from '@/store/contacts.store'
+import { API_BASE_URL } from '@/config'
 
 function NewContact() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -82,15 +83,11 @@ function NewContact() {
     }
 
     try {
-      const response = await axios.post(
-        'http://localhost:4000/api/contacts',
-        data,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      const response = await axios.post(`${API_BASE_URL}`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
 
       if (response.status === 201) {
         resetState()

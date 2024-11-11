@@ -17,6 +17,7 @@ import axios from 'axios'
 import { toast } from 'sonner'
 import { Contact } from '@/types'
 import { useContactsStore } from '@/store/contacts.store'
+import { API_BASE_URL } from '@/config'
 
 function EditContact({ contact }: { contact: Contact }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -83,15 +84,11 @@ function EditContact({ contact }: { contact: Contact }) {
     }
 
     try {
-      const response = await axios.put(
-        `http://localhost:4000/api/contacts/${contact.id}`,
-        data,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      const response = await axios.put(`${API_BASE_URL}${contact.id}`, data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
 
       if (response.status === 200) {
         resetControlledFields()

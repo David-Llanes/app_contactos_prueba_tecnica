@@ -12,6 +12,7 @@ import { useContactsStore } from '@/store/contacts.store'
 
 import axios from 'axios'
 import { toast } from 'sonner'
+import { API_BASE_URL } from '@/config'
 
 export default function ContactsList() {
   const contacts = useContactsStore((state) => state.contacts)
@@ -19,9 +20,7 @@ export default function ContactsList() {
 
   const handleDeleteContact = async (id: number) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:4000/api/contacts/${id}`
-      )
+      const response = await axios.delete(`${API_BASE_URL}${id}`)
       if (response.status === 200) {
         remove(id.toString())
         toast.success('Contacto eliminado')
