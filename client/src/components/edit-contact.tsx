@@ -16,15 +16,11 @@ import { ScrollArea, ScrollBar } from './ui/scroll-area'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { Contact } from '@/types'
+import { useContactsStore } from '@/store/contacts.store'
 
-function EditContact({
-  contact,
-  setContacts,
-}: {
-  contact: Contact
-  setContacts: React.Dispatch<React.SetStateAction<Contact[]>>
-}) {
+function EditContact({ contact }: { contact: Contact }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const update = useContactsStore((state) => state.update)
   const [phoneNumbers, setPhoneNumbers] = useState<string[]>(contact.numbers)
   const [addresses, setAddresses] = useState<string[]>(contact.addresses)
   const formRef = useRef<HTMLFormElement>(null)
@@ -101,7 +97,7 @@ function EditContact({
         resetControlledFields()
         formRef.current?.reset()
         toast.success('Contacto guardado')
-        setContacts((prev) => [...prev, response.data])
+        update(response.data)
       }
     } catch (error) {
       console.error(error)

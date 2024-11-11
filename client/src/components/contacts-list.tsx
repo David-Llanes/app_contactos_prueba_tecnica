@@ -5,22 +5,33 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { getFullName, getInitials } from '@/lib/utils'
-import { Contact } from '@/types'
 import { ScrollArea } from '@components/ui/scroll-area'
 import { Mail, MapPin, Phone, Search } from 'lucide-react'
 import EditContact from './edit-contact'
+import { useContactsStore } from '@/store/contacts.store'
 
-interface Props {
-  contacts: Contact[]
-  onDeleteContact: (id: number) => void
-  setContacts: React.Dispatch<React.SetStateAction<Contact[]>>
-}
+import axios from 'axios'
+import { toast } from 'sonner'
 
-export default function ContactsList({
-  contacts,
-  onDeleteContact,
-  setContacts,
-}: Props) {
+export default function ContactsList() {
+  const contacts = useContactsStore((state) => state.contacts)
+  const remove = useContactsStore((state) => state.remove)
+
+  const handleDeleteContact = async (id: number) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/api/contacts/${id}`
+      )
+      if (response.status === 200) {
+        remove(id.toString())
+        toast.success('Contacto eliminado')
+      }
+    } catch (error) {
+      console.error(error)
+      alert('Ocurrio un error al eliminar el contacto')
+    }
+  }
+
   if (!contacts.length) {
     return (
       <div className="flex flex-col gap-3 items-center ">
@@ -53,10 +64,10 @@ export default function ContactsList({
             </AccordionTrigger>
             <AccordionContent>
               <section className="flex gap-2 justify-end">
-                <EditContact contact={c} setContacts={setContacts} />
+                <EditContact contact={c} />
                 <button
                   className="hover:underline cursor-pointer font-semibold text-destructive"
-                  onClick={() => onDeleteContact(c.id)}
+                  onClick={() => handleDeleteContact(c.id)}
                 >
                   Eliminar
                 </button>

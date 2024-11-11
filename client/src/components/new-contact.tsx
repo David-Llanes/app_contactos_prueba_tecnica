@@ -15,17 +15,14 @@ import { useRef, useState } from 'react'
 import { ScrollArea, ScrollBar } from './ui/scroll-area'
 import axios from 'axios'
 import { toast } from 'sonner'
-import { Contact } from '@/types'
+import { useContactsStore } from '@/store/contacts.store'
 
-function NewContact({
-  setContacts,
-}: {
-  setContacts: React.Dispatch<React.SetStateAction<Contact[]>>
-}) {
+function NewContact() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [phoneNumbers, setPhoneNumbers] = useState<string[]>([''])
   const [addresses, setAddresses] = useState<string[]>([''])
   const formRef = useRef<HTMLFormElement>(null)
+  const add = useContactsStore((state) => state.add)
 
   // Función para reiniciar los campos de teléfono y dirección cada que se abra el modal
   const resetState = () => {
@@ -99,7 +96,7 @@ function NewContact({
         resetState()
         formRef.current?.reset()
         toast.success('Contacto guardado')
-        setContacts((prev) => [...prev, response.data])
+        add(response.data)
       }
     } catch (error) {
       console.error(error)
