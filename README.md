@@ -22,6 +22,7 @@ Esta aplicación web es una agenda de contactos que permite gestionar informaci�
 - **Shadcn** (para componentes de interfaz)
 - **Tailwind CSS** (opcional)
 - **React Router 6+** (para manejo de rutas)
+- **Express** (para la creacion de REST API)
 
 ## BACKEND 
 - Levanté mi propio servidor con una API REST. El código está disponible en https://github.com/David-Llanes/prueba_tecnica_backend
