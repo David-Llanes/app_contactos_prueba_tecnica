@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ThemeToggle } from './theme-toggle'
 export default function Navbar() {
   return (
     <header className="bg-popover py-4 content h-20">
@@ -9,6 +10,8 @@ export default function Navbar() {
             Contactos
           </Link>
         </div>
+
+        <ThemeToggle />
       </nav>
     </header>
   )
