@@ -98,7 +98,7 @@ function EditContact({ contact }: { contact: Contact }) {
       }
     } catch (error) {
       console.error(error)
-      toast.error('Ocurrió un error al guardar el contacto')
+      toast.error('No se pudo actualizar. Revisa el formato de los campos.')
     }
   }
 
